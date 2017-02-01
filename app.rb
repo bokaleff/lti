@@ -11,13 +11,14 @@ get '/test' do
 end
 
 post '/' do
-  return "<form method="post" action="https://apps.univesp.br/rea-deficiencia">
-    		<input type="submit" style="display:none"></input>
-		  </form>
-		  <script>
-    		window.location.href = "https://apps.univesp.br/rea-deficiencia";
-       	  </script>"
-  #params[:custom_canvas_user_login_id]
+  return '<form method="post" action="https://apps.univesp.br/rea-deficiencia" target="_blank" style="display:none">
+    <input type="hidden" name="ra" value="' + params[:custom_canvas_user_login_id] + '">
+    <input type="submit">
+    </form>
+    <script>
+      // automatic submit
+      document.forms[0].submit();
+    </script>'
 end
 
 
